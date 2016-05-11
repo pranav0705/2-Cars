@@ -17,6 +17,7 @@
 		3DE88FDD1CE3C2BD002DF8AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE88FDB1CE3C2BD002DF8AB /* LaunchScreen.storyboard */; };
 		3DE88FE81CE3C2BD002DF8AB /* _carsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FE71CE3C2BD002DF8AB /* _carsTests.m */; };
 		3DE88FF31CE3C2BD002DF8AB /* _carsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FF21CE3C2BD002DF8AB /* _carsUITests.m */; };
+		3DEF7AA71CE3EBB000150FFB /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DEF7AA61CE3EBB000150FFB /* square.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		3DE88FEE1CE3C2BD002DF8AB /* 2carsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 2carsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE88FF21CE3C2BD002DF8AB /* _carsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _carsUITests.m; sourceTree = "<group>"; };
 		3DE88FF41CE3C2BD002DF8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DEF7AA61CE3EBB000150FFB /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		3DE88FC71CE3C2BD002DF8AB /* 2cars */ = {
 			isa = PBXGroup;
 			children = (
+				3DEF7AA61CE3EBB000150FFB /* square.png */,
 				3DE88FCB1CE3C2BD002DF8AB /* AppDelegate.h */,
 				3DE88FCC1CE3C2BD002DF8AB /* AppDelegate.m */,
 				3DE88FCE1CE3C2BD002DF8AB /* GameScene.h */,
@@ -253,6 +256,7 @@
 			files = (
 				3DE88FD21CE3C2BD002DF8AB /* GameScene.sks in Resources */,
 				3DE88FDD1CE3C2BD002DF8AB /* LaunchScreen.storyboard in Resources */,
+				3DEF7AA71CE3EBB000150FFB /* square.png in Resources */,
 				3DE88FDA1CE3C2BD002DF8AB /* Assets.xcassets in Resources */,
 				3DE88FD81CE3C2BD002DF8AB /* Main.storyboard in Resources */,
 			);
@@ -508,6 +512,7 @@
 				3DE88FF91CE3C2BD002DF8AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DE88FFA1CE3C2BD002DF8AB /* Build configuration list for PBXNativeTarget "2carsTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +521,7 @@
 				3DE88FFC1CE3C2BD002DF8AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DE88FFD1CE3C2BD002DF8AB /* Build configuration list for PBXNativeTarget "2carsUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +530,7 @@
 				3DE88FFF1CE3C2BD002DF8AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
