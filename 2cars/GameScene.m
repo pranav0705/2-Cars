@@ -8,6 +8,9 @@
 
 #import "GameScene.h"
 SKSpriteNode *red_square;
+CGRect screenRect;
+CGFloat screenWidth;
+CGFloat screenHeight;
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
@@ -20,7 +23,9 @@ SKSpriteNode *red_square;
 //                                   CGRectGetMidY(self.frame));
 //    
 //    [self addChild:myLabel];
-    
+    screenRect = [[UIScreen mainScreen] bounds];
+    screenWidth = screenRect.size.width;
+    screenHeight = screenRect.size.height;
     [self generate_red_Square];
 }
 
@@ -47,7 +52,8 @@ SKSpriteNode *red_square;
 -(void)generate_red_Square
 {
     red_square = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
-    red_square.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
+   // red_square.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
+     red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
     //red_square.size     = CGSizeMake(80, 56);
     red_square.name     = @"square";
     
