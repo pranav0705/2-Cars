@@ -9,7 +9,7 @@
 #import "GameScene.h"
 SKSpriteNode *red_square,*red_car,*red_square2,*red_square3,*red_square4;
 SKLabelNode *score;
-int red_cnt = 0,red_sq=0,red_sq2=0,red_sq3=0,red_sq4=0,tmp=0;
+int red_cnt = 0,red_sq=0,red_sq2=0,red_sq3=0,red_sq4=0,tmp=0,scr = 0;
 //tmp = 0 for circle and 1 for square
 Boolean rs = false,rs2 = false, rs3 = false, rs4 = false;
 CGRect screenRect;
@@ -31,12 +31,29 @@ NSTimer *red_timer,*collision_red;
     
     red_timer = [NSTimer scheduledTimerWithTimeInterval:1.7 target:self selector:@selector(redTime) userInfo:nil repeats:YES];
     collision_red = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(col_red) userInfo:nil repeats:YES];
+    
+    
     screenRect = [[UIScreen mainScreen] bounds];
     screenWidth = screenRect.size.width;
     screenHeight = screenRect.size.height;
+    
+    
   //  [self generate_red_Square];
     [self set_Red_car];
+    //setting score label
+    [self setScoreLabel];
 }
+
+-(void)setScoreLabel
+{
+    score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    score.position = CGPointMake(CGRectGetWidth(self.frame) - 330, CGRectGetHeight(self.frame)-40);
+    score.fontSize = 45;
+    [score setFontName:@"Papyrus"];
+    score.text = @"0";
+    [self addChild:score];
+}
+
 -(void)col_red
 {
     //checking for 1st Square
