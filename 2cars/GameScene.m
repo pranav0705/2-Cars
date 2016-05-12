@@ -7,7 +7,7 @@
 //
 
 #import "GameScene.h"
-SKSpriteNode *red_square;
+SKSpriteNode *red_square,*red_car;
 CGRect screenRect;
 CGFloat screenWidth;
 CGFloat screenHeight;
@@ -27,6 +27,7 @@ CGFloat screenHeight;
     screenWidth = screenRect.size.width;
     screenHeight = screenRect.size.height;
     [self generate_red_Square];
+    [self set_Red_car];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -47,6 +48,17 @@ CGFloat screenHeight;
 //        
 //        [self addChild:sprite];
 //    }
+    
+    SKAction *rotation = [SKAction rotateByAngle: -M_PI/4.0 duration:0.5];
+    //and just run the action
+    [red_car runAction: rotation];
+}
+
+-(void)set_Red_car
+{
+    red_car = [SKSpriteNode spriteNodeWithImageNamed:@"car"];
+    red_car.position = CGPointMake(CGRectGetMidX(self.frame) - 170, 30);
+    [self addChild:red_car];
 }
 
 -(void)generate_red_Square
@@ -58,6 +70,19 @@ CGFloat screenHeight;
     red_square.name     = @"square";
     
     [self addChild:red_square];
+    
+//    double distance = sqrt(pow((CGRectGetMidX(self.frame) - 170 - red_square.position.x), 2.0) + pow((20 - red_square.position.y), 2.0));
+//    
+//    //calculate your new duration based on the distance
+//    float moveDuration = 0.009*distance;
+//    
+//    //move the node
+//    SKAction *move = [SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 170,0) duration: moveDuration];
+//    [red_square runAction: move];
+    
+    //setting time for the image to slide
+    [red_square runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 170,0) duration:3.0]];
+    
 }
 
 -(void)update:(CFTimeInterval)currentTime {

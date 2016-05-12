@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D98F84A1CE4084300BACA3B /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D98F8491CE4084300BACA3B /* car.png */; };
 		3DE88FCA1CE3C2BD002DF8AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FC91CE3C2BD002DF8AB /* main.m */; };
 		3DE88FCD1CE3C2BD002DF8AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FCC1CE3C2BD002DF8AB /* AppDelegate.m */; };
 		3DE88FD01CE3C2BD002DF8AB /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FCF1CE3C2BD002DF8AB /* GameScene.m */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D98F8491CE4084300BACA3B /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = SOURCE_ROOT; };
 		3DE88FC51CE3C2BD002DF8AB /* 2cars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2cars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE88FC91CE3C2BD002DF8AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DE88FCB1CE3C2BD002DF8AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		3DE88FC71CE3C2BD002DF8AB /* 2cars */ = {
 			isa = PBXGroup;
 			children = (
+				3D98F8491CE4084300BACA3B /* car.png */,
 				3DEF7AA61CE3EBB000150FFB /* square.png */,
 				3DE88FCB1CE3C2BD002DF8AB /* AppDelegate.h */,
 				3DE88FCC1CE3C2BD002DF8AB /* AppDelegate.m */,
@@ -254,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D98F84A1CE4084300BACA3B /* car.png in Resources */,
 				3DE88FD21CE3C2BD002DF8AB /* GameScene.sks in Resources */,
 				3DE88FDD1CE3C2BD002DF8AB /* LaunchScreen.storyboard in Resources */,
 				3DEF7AA71CE3EBB000150FFB /* square.png in Resources */,
