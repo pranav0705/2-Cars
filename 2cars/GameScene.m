@@ -48,10 +48,38 @@ CGFloat screenHeight;
 //        
 //        [self addChild:sprite];
 //    }
+    if(red_car.position.x == (CGRectGetMidX(self.frame) - 170))
+    {
+        red_car.name = @"car";
+        [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 70,30) duration:0.5]];
+        SKAction *rotation = [SKAction rotateByAngle: 0 duration:0.5];
+        //and just run the action
+       // [red_car runAction: rotation];
+        SKAction *moveUp = [SKAction rotateByAngle: -M_PI/4.0 duration:0.5];
+        SKAction *moveDown = [SKAction rotateByAngle: M_PI/4.0 duration:0.8];
+        
+        [self enumerateChildNodesWithName:@"car" usingBlock:^(SKNode *node, BOOL *stop) {
+            NSLog(@"RUNNING MOVE UP");
+            
+            [red_car runAction:moveUp completion:^{
+              //  [red_car runAction: rotation];
+                
+                NSLog(@"RUNNING MOVE DOWN");
+               // [node setHidden: NO];
+                [red_car runAction:moveDown completion:^{
+                    [red_car removeAllActions];
+                    NSLog(@"STARTING MOVEMENT");
+                }];
+            }];
+        }];
+    }
+    else
+    {
+        
+    }
+        
     
-    SKAction *rotation = [SKAction rotateByAngle: -M_PI/4.0 duration:0.5];
-    //and just run the action
-    [red_car runAction: rotation];
+ 
 }
 
 -(void)set_Red_car
