@@ -8,11 +8,14 @@
 
 #import "GameScene.h"
 SKSpriteNode *red_square,*red_car,*red_square2,*red_square3,*red_square4;
-int red_cnt = 0;
+SKLabelNode *score;
+int red_cnt = 0,red_sq=0,red_sq2=0,red_sq3=0,red_sq4=0,tmp=0;
+//tmp = 0 for circle and 1 for square
+Boolean rs = false,rs2 = false, rs3 = false, rs4 = false;
 CGRect screenRect;
 CGFloat screenWidth;
 CGFloat screenHeight;
-NSTimer *red_timer;
+NSTimer *red_timer,*collision_red;
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
@@ -25,12 +28,126 @@ NSTimer *red_timer;
 //                                   CGRectGetMidY(self.frame));
 //    
 //    [self addChild:myLabel];
+    
     red_timer = [NSTimer scheduledTimerWithTimeInterval:1.7 target:self selector:@selector(redTime) userInfo:nil repeats:YES];
+    collision_red = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(col_red) userInfo:nil repeats:YES];
     screenRect = [[UIScreen mainScreen] bounds];
     screenWidth = screenRect.size.width;
     screenHeight = screenRect.size.height;
-    [self generate_red_Square];
+  //  [self generate_red_Square];
     [self set_Red_car];
+}
+-(void)col_red
+{
+    //checking for 1st Square
+    if (CGRectIntersectsRect([red_car frame], [red_square frame])) {
+        if (red_sq == 1) {
+            NSLog(@"tmp = %d",tmp);
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+             [collision_red invalidate];
+        }
+    }
+    
+    //checking for 2nd Square
+    if (CGRectIntersectsRect([red_car frame], [red_square2 frame])) {
+        if (red_sq2 == 1) {
+            NSLog(@"tmp = %d",tmp);
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+             [collision_red invalidate];
+        }
+    }
+    //checking for 3rd Square
+    if (CGRectIntersectsRect([red_car frame], [red_square3 frame])) {
+        if (red_sq3 == 1) {
+            NSLog(@"tmp = %d",tmp);
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+             [collision_red invalidate];
+        }
+    }
+    //checking for 4th Square
+    if (CGRectIntersectsRect([red_car frame], [red_square4 frame])) {
+        if (red_sq4 == 1) {
+            NSLog(@"tmp = %d",tmp);
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+            [collision_red invalidate];
+        }
+    }
+    
+    //checking if missed circle
+    //for 1st circle
+    if(red_sq == 0 && rs)
+    {
+       // NSLog(@"here y position %f",red_square.position.y);
+        if(red_square.position.y < 20)
+        {
+              NSLog(@"position %f",red_square.position.y);
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+            [collision_red invalidate];
+        }
+    }
+    //for 2nd circle
+    if(red_sq2 == 0 && rs2)
+    {
+        if(red_square2.position.y < 20)
+        {
+              NSLog(@"position2 %f",red_square2.position.y);
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+            [collision_red invalidate];
+        }
+    }
+
+    //for 3rd circle
+    if(red_sq3 == 0 && rs3)
+    {
+        if(red_square3.position.y < 20)
+        {
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+            [collision_red invalidate];
+        }
+    }
+
+    //for 4th circle
+    if(red_sq4 == 0 && rs4)
+    {
+        if(red_square4.position.y < 20)
+        {
+            [red_timer invalidate];
+            [red_square removeAllActions];
+            [red_square2 removeAllActions];
+            [red_square3 removeAllActions];
+            [red_square4 removeAllActions];
+            [collision_red invalidate];
+        }
+    }
+
 }
 -(void)redTime
 {
@@ -43,11 +160,17 @@ NSTimer *red_timer;
      NSInteger randomImage = arc4random() % 4;
     if (randomImage == 0 || randomImage == 2) {
         image = @"circle";
+        tmp = 0;
     }
     else
+    {
         image = @"square";
+        tmp = 1;
+    }
     if(red_cnt == 0)
     {
+        rs = true;
+        red_sq = tmp;
         if (randomNumber == 0 || randomNumber == 3) {
             red_square = [SKSpriteNode spriteNodeWithImageNamed:image];
             red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
@@ -74,6 +197,8 @@ NSTimer *red_timer;
     }
     else if(red_cnt == 1)
     {
+        rs2 = true;
+        red_sq2 = tmp;
         if (randomNumber == 0 || randomNumber == 3) {
             red_square2 = [SKSpriteNode spriteNodeWithImageNamed:image];
             red_square2.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
@@ -100,6 +225,8 @@ NSTimer *red_timer;
     }
     else if (red_cnt == 2)
     {
+        rs3 = true;
+        red_sq3 = tmp;
         red_square3 = [SKSpriteNode spriteNodeWithImageNamed:image];
         red_square3.name = @"square3";
         if(randomNumber == 0 || randomNumber == 3)
@@ -116,6 +243,8 @@ NSTimer *red_timer;
     }
     else
     {
+        rs4 = true;
+        red_sq4 = tmp;
         red_square4 = [SKSpriteNode spriteNodeWithImageNamed:image];
         red_square4.name = @"square4";
         if(randomNumber == 0 || randomNumber == 3)
@@ -164,16 +293,16 @@ NSTimer *red_timer;
         SKAction *moveDown = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
         
         [self enumerateChildNodesWithName:@"car" usingBlock:^(SKNode *node, BOOL *stop) {
-            NSLog(@"RUNNING MOVE UP");
+           
             
             [red_car runAction:moveUp completion:^{
               //  [red_car runAction: rotation];
                 
-                NSLog(@"RUNNING MOVE DOWN");
+               
                // [node setHidden: NO];
                 [red_car runAction:moveDown completion:^{
                     [red_car removeAllActions];
-                    NSLog(@"STARTING MOVEMENT");
+                   
                 }];
             }];
         }];
