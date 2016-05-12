@@ -38,11 +38,18 @@ NSTimer *red_timer;
         red_cnt = 0;
     
     //generation for lane 1 or lane 2
-    NSInteger randomNumber = arc4random() % 2;
+    NSString *image;
+    NSInteger randomNumber = arc4random() % 4;
+     NSInteger randomImage = arc4random() % 4;
+    if (randomImage == 0 || randomImage == 2) {
+        image = @"circle";
+    }
+    else
+        image = @"square";
     if(red_cnt == 0)
     {
-        if (randomNumber == 0) {
-            red_square = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
+        if (randomNumber == 0 || randomNumber == 3) {
+            red_square = [SKSpriteNode spriteNodeWithImageNamed:image];
             red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
             red_square.name     = @"square";
             
@@ -54,7 +61,7 @@ NSTimer *red_timer;
         }
         else
         {
-            red_square = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
+            red_square = [SKSpriteNode spriteNodeWithImageNamed:image];
             red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
             red_square.name     = @"square";
         
@@ -67,8 +74,8 @@ NSTimer *red_timer;
     }
     else if(red_cnt == 1)
     {
-        if (randomNumber == 0) {
-            red_square2 = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
+        if (randomNumber == 0 || randomNumber == 3) {
+            red_square2 = [SKSpriteNode spriteNodeWithImageNamed:image];
             red_square2.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
             red_square2.name     = @"square2";
             
@@ -80,7 +87,7 @@ NSTimer *red_timer;
         }
         else
         {
-            red_square2 = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
+            red_square2 = [SKSpriteNode spriteNodeWithImageNamed:image];
             red_square2.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
             red_square2.name     = @"square2";
             
@@ -93,9 +100,9 @@ NSTimer *red_timer;
     }
     else if (red_cnt == 2)
     {
-        red_square3 = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
+        red_square3 = [SKSpriteNode spriteNodeWithImageNamed:image];
         red_square3.name = @"square3";
-        if(randomNumber == 0)
+        if(randomNumber == 0 || randomNumber == 3)
         {
             red_square3.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
         }
@@ -109,9 +116,9 @@ NSTimer *red_timer;
     }
     else
     {
-        red_square4 = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
+        red_square4 = [SKSpriteNode spriteNodeWithImageNamed:image];
         red_square4.name = @"square4";
-        if(randomNumber == 0)
+        if(randomNumber == 0 || randomNumber == 3)
         {
             red_square4.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
         }
