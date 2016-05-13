@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3D98F84A1CE4084300BACA3B /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D98F8491CE4084300BACA3B /* car.png */; };
 		3D98F84C1CE428DA00BACA3B /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D98F84B1CE428DA00BACA3B /* circle.png */; };
+		3DC820491CE67B9D00C105D0 /* blue_car.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC820471CE67B9D00C105D0 /* blue_car.png */; };
+		3DC8204A1CE67B9D00C105D0 /* blue_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC820481CE67B9D00C105D0 /* blue_circle.png */; };
 		3DE88FCA1CE3C2BD002DF8AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FC91CE3C2BD002DF8AB /* main.m */; };
 		3DE88FCD1CE3C2BD002DF8AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FCC1CE3C2BD002DF8AB /* AppDelegate.m */; };
 		3DE88FD01CE3C2BD002DF8AB /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FCF1CE3C2BD002DF8AB /* GameScene.m */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		3D98F8491CE4084300BACA3B /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = SOURCE_ROOT; };
 		3D98F84B1CE428DA00BACA3B /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = SOURCE_ROOT; };
+		3DC820471CE67B9D00C105D0 /* blue_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_car.png; sourceTree = SOURCE_ROOT; };
+		3DC820481CE67B9D00C105D0 /* blue_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_circle.png; sourceTree = SOURCE_ROOT; };
 		3DE88FC51CE3C2BD002DF8AB /* 2cars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2cars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE88FC91CE3C2BD002DF8AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DE88FCB1CE3C2BD002DF8AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 		3DE88FC71CE3C2BD002DF8AB /* 2cars */ = {
 			isa = PBXGroup;
 			children = (
+				3DC820471CE67B9D00C105D0 /* blue_car.png */,
+				3DC820481CE67B9D00C105D0 /* blue_circle.png */,
 				3D98F84B1CE428DA00BACA3B /* circle.png */,
 				3D98F8491CE4084300BACA3B /* car.png */,
 				3DEF7AA61CE3EBB000150FFB /* square.png */,
@@ -260,10 +266,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC8204A1CE67B9D00C105D0 /* blue_circle.png in Resources */,
 				3D98F84A1CE4084300BACA3B /* car.png in Resources */,
 				3DE88FD21CE3C2BD002DF8AB /* GameScene.sks in Resources */,
 				3DE88FDD1CE3C2BD002DF8AB /* LaunchScreen.storyboard in Resources */,
 				3DEF7AA71CE3EBB000150FFB /* square.png in Resources */,
+				3DC820491CE67B9D00C105D0 /* blue_car.png in Resources */,
 				3D98F84C1CE428DA00BACA3B /* circle.png in Resources */,
 				3DE88FDA1CE3C2BD002DF8AB /* Assets.xcassets in Resources */,
 				3DE88FD81CE3C2BD002DF8AB /* Main.storyboard in Resources */,
