@@ -36,7 +36,6 @@ NSTimer *red_timer,*collision_red;
     //1st line from left
     SKShapeNode *yourline = [SKShapeNode node];
     CGMutablePathRef pathToDraw = CGPathCreateMutable();
-    float m = CGRectGetMidX(self.frame);
     CGPathMoveToPoint(pathToDraw, NULL,CGRectGetMidX(self.frame) - 110,1400);
     CGPathAddLineToPoint(pathToDraw, NULL, CGRectGetMidX(self.frame) - 110, 0);
     yourline.path = pathToDraw;
@@ -383,53 +382,68 @@ NSTimer *red_timer,*collision_red;
 //        
 //        [self addChild:sprite];
 //    }
+    
+    UITouch *myTouch = [touches anyObject];
+    
+    CGPoint aPoint = [myTouch locationInView:self.view];
     red_car.name = @"car";
-    if(red_car.position.x == (CGRectGetMidX(self.frame) - 165))
-    {
-       
-        [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 60,30) duration:0.4]];
-      //  SKAction *rotation = [SKAction rotateByAngle: 0 duration:0.5];
-        //and just run the action
-       // [red_car runAction: rotation];
-        SKAction *moveUp = [SKAction rotateByAngle: -M_PI/4.0 duration:0.2];
-        SKAction *moveDown = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
-        
-        [self enumerateChildNodesWithName:@"car" usingBlock:^(SKNode *node, BOOL *stop) {
-           
+    if(aPoint.x < 190) { //Left
+        //NSLog(@"Tapping on the left side of the screen is for communists! %f and %f",screenWidth,aPoint.x);
+        if(red_car.position.x == (CGRectGetMidX(self.frame) - 165))
+        {
             
-            [red_car runAction:moveUp completion:^{
-              //  [red_car runAction: rotation];
+            [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 60,30) duration:0.4]];
+            //  SKAction *rotation = [SKAction rotateByAngle: 0 duration:0.5];
+            //and just run the action
+            // [red_car runAction: rotation];
+            SKAction *moveUp = [SKAction rotateByAngle: -M_PI/4.0 duration:0.2];
+            SKAction *moveDown = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
+            
+            [self enumerateChildNodesWithName:@"car" usingBlock:^(SKNode *node, BOOL *stop) {
                 
-               
-               // [node setHidden: NO];
-                [red_car runAction:moveDown completion:^{
-                    [red_car removeAllActions];
-                   
+                
+                [red_car runAction:moveUp completion:^{
+                    //  [red_car runAction: rotation];
+                    
+                    
+                    // [node setHidden: NO];
+                    [red_car runAction:moveDown completion:^{
+                        [red_car removeAllActions];
+                        
+                    }];
                 }];
             }];
-        }];
-    }
-    else
-    {
-        [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 165,30) duration:0.4]];
-        SKAction *moveUp = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
-        SKAction *moveDown = [SKAction rotateByAngle: -M_PI/4.0 duration:0.2];
-        [self enumerateChildNodesWithName:@"car" usingBlock:^(SKNode *node, BOOL *stop) {
-           
-            
-            [red_car runAction:moveUp completion:^{
-                //  [red_car runAction: rotation];
+        }
+        else
+        {
+            [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 165,30) duration:0.4]];
+            SKAction *moveUp = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
+            SKAction *moveDown = [SKAction rotateByAngle: -M_PI/4.0 duration:0.2];
+            [self enumerateChildNodesWithName:@"car" usingBlock:^(SKNode *node, BOOL *stop) {
                 
                 
-                // [node setHidden: NO];
-                [red_car runAction:moveDown completion:^{
-                    [red_car removeAllActions];
-                   
+                [red_car runAction:moveUp completion:^{
+                    //  [red_car runAction: rotation];
+                    
+                    
+                    // [node setHidden: NO];
+                    [red_car runAction:moveDown completion:^{
+                        [red_car removeAllActions];
+                        
+                    }];
                 }];
             }];
-        }];
-    }
+        }
+
         
+        
+        
+    }
+        else // Right
+            NSLog(@"User tapped on the right side! Ohh Yeah!");
+    
+    
+    
     
  
 }
