@@ -8,16 +8,21 @@
 
 #import "GameScene.h"
 SKSpriteNode *red_square,*red_car,*red_square2,*red_square3,*red_square4,*blue_car;
+SKSpriteNode *blue_square,*blue_square2,*blue_square3,*blue_square4;
 SKLabelNode *score;
 int red_cnt = 0,red_sq=0,red_sq2=0,red_sq3=0,red_sq4=0,tmp=0,scr = 0;
+int blue_cnt = 0,blue_sq = 0,blue_sq2=0,blue_sq3=0,blue_sq4=0;
 //tmp = 0 for circle and 1 for square
 Boolean rs = false,rs2 = false, rs3 = false, rs4 = false;
+Boolean bs = false,bs2 = false,bs3 = false, bs4 = false;
 //flags to increment score
 Boolean scr1 = false,scr2 = false, scr3 = false, scr4 = false;
+Boolean bscr1 = false,bscr2 = false, bscr3 = false, bscr4 = false;
 CGRect screenRect;
 CGFloat screenWidth;
 CGFloat screenHeight;
 NSTimer *red_timer,*collision_red;
+NSTimer *blue_timer,*collision_blue;
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
@@ -63,6 +68,8 @@ NSTimer *red_timer,*collision_red;
     red_timer = [NSTimer scheduledTimerWithTimeInterval:1.7 target:self selector:@selector(redTime) userInfo:nil repeats:YES];
     collision_red = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(col_red) userInfo:nil repeats:YES];
     
+    //timer for blue car
+    blue_timer = [NSTimer scheduledTimerWithTimeInterval:1.7 target:self selector:@selector(blueTime) userInfo:nil repeats:YES];
     
     screenRect = [[UIScreen mainScreen] bounds];
     screenWidth = screenRect.size.width;
@@ -242,6 +249,107 @@ NSTimer *red_timer,*collision_red;
         }
     }
 
+}
+
+-(void)blueTime
+{
+    if(blue_cnt == 4)
+        blue_cnt = 0;
+    
+    //image generation
+    NSString *image;
+    NSInteger randomNumber = arc4random() % 4;
+    NSInteger randomImage = arc4random() % 4;
+   // if (randomImage == 0 || randomImage == 2) {
+        image = @"blue_circle";
+        tmp = 0;
+    //}
+//    else
+//    {
+//        image = @"square";
+//        tmp = 1;
+//    }
+
+    if(blue_cnt == 0)
+    {
+        blue_square.hidden = NO;
+        bscr1 = true;
+        bs = true;
+        blue_sq = tmp;
+        blue_square = [SKSpriteNode spriteNodeWithImageNamed:image];
+        blue_square.name = @"square";
+        if(randomNumber == 0 || randomNumber == 3)
+        {
+            blue_square.position = CGPointMake(CGRectGetMidX(self.frame) + 60,screenHeight + 100);
+        }
+        else
+        {
+            blue_square.position = CGPointMake(CGRectGetMidX(self.frame) + 165,screenHeight + 100);
+        }
+        [self addChild:blue_square];
+        [blue_square runAction:[SKAction moveTo:CGPointMake(blue_square.position.x,-50) duration:3.0]];
+        blue_cnt++;
+    }
+    else if (blue_cnt ==1)
+    {
+        blue_square2.hidden = NO;
+        bscr2 = true;
+        bs2 = true;
+        blue_sq2 = tmp;
+        blue_square2 = [SKSpriteNode spriteNodeWithImageNamed:image];
+        blue_square2.name = @"square2";
+        if(randomNumber == 0 || randomNumber == 3)
+        {
+            blue_square2.position = CGPointMake(CGRectGetMidX(self.frame) + 60,screenHeight + 100);
+        }
+        else
+        {
+            blue_square2.position = CGPointMake(CGRectGetMidX(self.frame) + 165,screenHeight + 100);
+        }
+        [self addChild:blue_square2];
+        [blue_square2 runAction:[SKAction moveTo:CGPointMake(blue_square2.position.x,-50) duration:3.0]];
+        blue_cnt++;
+    }
+    else if(blue_cnt == 2)
+    {
+        blue_square3.hidden = NO;
+        bscr3 = true;
+        bs3 = true;
+        blue_sq3 = tmp;
+        blue_square3 = [SKSpriteNode spriteNodeWithImageNamed:image];
+        blue_square3.name = @"square3";
+        if(randomNumber == 0 || randomNumber == 3)
+        {
+            blue_square3.position = CGPointMake(CGRectGetMidX(self.frame) + 60,screenHeight + 100);
+        }
+        else
+        {
+            blue_square3.position = CGPointMake(CGRectGetMidX(self.frame) + 165,screenHeight + 100);
+        }
+        [self addChild:blue_square3];
+        [blue_square3 runAction:[SKAction moveTo:CGPointMake(blue_square3.position.x,-50) duration:3.0]];
+        blue_cnt++;
+    }
+    else
+    {
+        blue_square4.hidden = NO;
+        bscr4 = true;
+        bs4 = true;
+        blue_sq4 = tmp;
+        blue_square4 = [SKSpriteNode spriteNodeWithImageNamed:image];
+        blue_square4.name = @"square4";
+        if(randomNumber == 0 || randomNumber == 3)
+        {
+            blue_square4.position = CGPointMake(CGRectGetMidX(self.frame) + 60,screenHeight + 100);
+        }
+        else
+        {
+            blue_square4.position = CGPointMake(CGRectGetMidX(self.frame) + 165,screenHeight + 100);
+        }
+        [self addChild:blue_square4];
+        [blue_square4 runAction:[SKAction moveTo:CGPointMake(blue_square4.position.x,-50) duration:3.0]];
+        blue_cnt++;
+    }
 }
 -(void)redTime
 {
