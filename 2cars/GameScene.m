@@ -12,6 +12,8 @@ SKLabelNode *score;
 int red_cnt = 0,red_sq=0,red_sq2=0,red_sq3=0,red_sq4=0,tmp=0,scr = 0;
 //tmp = 0 for circle and 1 for square
 Boolean rs = false,rs2 = false, rs3 = false, rs4 = false;
+//flags to increment score
+Boolean scr1 = false,scr2 = false, scr3 = false, scr4 = false;
 CGRect screenRect;
 CGFloat screenWidth;
 CGFloat screenHeight;
@@ -28,6 +30,35 @@ NSTimer *red_timer,*collision_red;
 //                                   CGRectGetMidY(self.frame));
 //    
 //    [self addChild:myLabel];
+    //self.scene.backgroundColor = [UIColor yellowColor];
+    self.scene.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:102/255.0 alpha:1];
+    
+    //1st line from left
+    SKShapeNode *yourline = [SKShapeNode node];
+    CGMutablePathRef pathToDraw = CGPathCreateMutable();
+    CGPathMoveToPoint(pathToDraw, NULL, CGRectGetMidX(self.frame) - 120,1400);
+    CGPathAddLineToPoint(pathToDraw, NULL, CGRectGetMidX(self.frame) - 120, 0);
+    yourline.path = pathToDraw;
+    [yourline setStrokeColor:[SKColor redColor]];
+    [self addChild:yourline];
+    
+    //2nd line
+    SKShapeNode *yourline2 = [SKShapeNode node];
+    CGMutablePathRef pathToDraw2 = CGPathCreateMutable();
+    CGPathMoveToPoint(pathToDraw2, NULL, CGRectGetMidX(self.frame) - 20,1400);
+    CGPathAddLineToPoint(pathToDraw2, NULL, CGRectGetMidX(self.frame) - 20, 0);
+    yourline2.path = pathToDraw2;
+    [yourline2 setStrokeColor:[SKColor redColor]];
+    [self addChild:yourline2];
+    
+    //3rd line
+    SKShapeNode *yourline3 = [SKShapeNode node];
+    CGMutablePathRef pathToDraw3 = CGPathCreateMutable();
+    CGPathMoveToPoint(pathToDraw3, NULL, CGRectGetMidX(self.frame) + 80,1400);
+    CGPathAddLineToPoint(pathToDraw3, NULL, CGRectGetMidX(self.frame) + 80, 0);
+    yourline3.path = pathToDraw3;
+    [yourline3 setStrokeColor:[SKColor redColor]];
+    [self addChild:yourline3];
     
     red_timer = [NSTimer scheduledTimerWithTimeInterval:1.7 target:self selector:@selector(redTime) userInfo:nil repeats:YES];
     collision_red = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(col_red) userInfo:nil repeats:YES];
@@ -67,6 +98,18 @@ NSTimer *red_timer,*collision_red;
             [red_square4 removeAllActions];
              [collision_red invalidate];
         }
+        else
+        {
+            if(scr1)
+            {
+                scr1 = false;
+                red_square.hidden = YES;
+                rs = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
+            
+        }
     }
     
     //checking for 2nd Square
@@ -80,6 +123,17 @@ NSTimer *red_timer,*collision_red;
             [red_square4 removeAllActions];
              [collision_red invalidate];
         }
+        else
+        {
+            if(scr2)
+            {
+                scr2 = false;
+                red_square2.hidden = YES;
+                rs2 = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
+        }
     }
     //checking for 3rd Square
     if (CGRectIntersectsRect([red_car frame], [red_square3 frame])) {
@@ -92,6 +146,17 @@ NSTimer *red_timer,*collision_red;
             [red_square4 removeAllActions];
              [collision_red invalidate];
         }
+        else
+        {
+            if(scr3)
+            {
+                scr3 = false;
+                red_square3.hidden = YES;
+                rs3 = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
+        }
     }
     //checking for 4th Square
     if (CGRectIntersectsRect([red_car frame], [red_square4 frame])) {
@@ -103,6 +168,17 @@ NSTimer *red_timer,*collision_red;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
             [collision_red invalidate];
+        }
+        else
+        {
+            if(scr4)
+            {
+                scr4 = false;
+                red_square4.hidden = YES;
+                rs4 = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
         }
     }
     
@@ -186,6 +262,8 @@ NSTimer *red_timer,*collision_red;
     }
     if(red_cnt == 0)
     {
+        scr1 = true;
+        red_square.hidden = NO;
         rs = true;
         red_sq = tmp;
         if (randomNumber == 0 || randomNumber == 3) {
@@ -214,6 +292,8 @@ NSTimer *red_timer,*collision_red;
     }
     else if(red_cnt == 1)
     {
+        scr2 = true;
+        red_square2.hidden = NO;
         rs2 = true;
         red_sq2 = tmp;
         if (randomNumber == 0 || randomNumber == 3) {
@@ -242,8 +322,10 @@ NSTimer *red_timer,*collision_red;
     }
     else if (red_cnt == 2)
     {
+        scr3 = true;
         rs3 = true;
         red_sq3 = tmp;
+        red_square3.hidden = NO;
         red_square3 = [SKSpriteNode spriteNodeWithImageNamed:image];
         red_square3.name = @"square3";
         if(randomNumber == 0 || randomNumber == 3)
@@ -260,6 +342,8 @@ NSTimer *red_timer,*collision_red;
     }
     else
     {
+        red_square4.hidden = NO;
+        scr4 = true;
         rs4 = true;
         red_sq4 = tmp;
         red_square4 = [SKSpriteNode spriteNodeWithImageNamed:image];
