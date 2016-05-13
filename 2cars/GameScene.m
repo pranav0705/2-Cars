@@ -7,7 +7,7 @@
 //
 
 #import "GameScene.h"
-SKSpriteNode *red_square,*red_car,*red_square2,*red_square3,*red_square4;
+SKSpriteNode *red_square,*red_car,*red_square2,*red_square3,*red_square4,*blue_car;
 SKLabelNode *score;
 int red_cnt = 0,red_sq=0,red_sq2=0,red_sq3=0,red_sq4=0,tmp=0,scr = 0;
 //tmp = 0 for circle and 1 for square
@@ -71,6 +71,7 @@ NSTimer *red_timer,*collision_red;
     
   //  [self generate_red_Square];
     [self set_Red_car];
+    [self set_Blue_car];
     //setting score label
     [self setScoreLabel];
 }
@@ -387,6 +388,7 @@ NSTimer *red_timer,*collision_red;
     
     CGPoint aPoint = [myTouch locationInView:self.view];
     red_car.name = @"car";
+    blue_car.name = @"blue_car";
     if(aPoint.x < 190) { //Left
         //NSLog(@"Tapping on the left side of the screen is for communists! %f and %f",screenWidth,aPoint.x);
         if(red_car.position.x == (CGRectGetMidX(self.frame) - 165))
@@ -440,12 +442,53 @@ NSTimer *red_timer,*collision_red;
         
     }
         else // Right
-            NSLog(@"User tapped on the right side! Ohh Yeah!");
-    
-    
-    
-    
- 
+        {
+            if(blue_car.position.x == (CGRectGetMidX(self.frame) + 60))
+            {
+                
+                [blue_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) + 165,30) duration:0.4]];
+                //  SKAction *rotation = [SKAction rotateByAngle: 0 duration:0.5];
+                //and just run the action
+                // [red_car runAction: rotation];
+                SKAction *moveUp = [SKAction rotateByAngle: -M_PI/4.0 duration:0.2];
+                SKAction *moveDown = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
+                
+                [self enumerateChildNodesWithName:@"blue_car" usingBlock:^(SKNode *node, BOOL *stop) {
+                    
+                    
+                    [blue_car runAction:moveUp completion:^{
+                        //  [red_car runAction: rotation];
+                        
+                        
+                        // [node setHidden: NO];
+                        [blue_car runAction:moveDown completion:^{
+                            [blue_car removeAllActions];
+                            
+                        }];
+                    }];
+                }];
+            }
+            else
+            {
+                [blue_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) + 60,30) duration:0.4]];
+                SKAction *moveUp = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
+                SKAction *moveDown = [SKAction rotateByAngle: -M_PI/4.0 duration:0.2];
+                [self enumerateChildNodesWithName:@"blue_car" usingBlock:^(SKNode *node, BOOL *stop) {
+                    
+                    
+                    [blue_car runAction:moveUp completion:^{
+                        //  [red_car runAction: rotation];
+                        
+                        
+                        // [node setHidden: NO];
+                        [blue_car runAction:moveDown completion:^{
+                            [blue_car removeAllActions];
+                            
+                        }];
+                    }];
+                }];
+            }
+        }
 }
 
 -(void)set_Red_car
@@ -453,6 +496,12 @@ NSTimer *red_timer,*collision_red;
     red_car = [SKSpriteNode spriteNodeWithImageNamed:@"car"];
     red_car.position = CGPointMake(CGRectGetMidX(self.frame) - 165, 30);
     [self addChild:red_car];
+}
+-(void)set_Blue_car
+{
+    blue_car = [SKSpriteNode spriteNodeWithImageNamed:@"blue_car"];
+    blue_car.position = CGPointMake(CGRectGetMidX(self.frame) + 60, 30);
+    [self addChild:blue_car];
 }
 
 -(void)generate_red_Square
