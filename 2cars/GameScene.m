@@ -31,13 +31,14 @@ NSTimer *red_timer,*collision_red;
 //    
 //    [self addChild:myLabel];
     //self.scene.backgroundColor = [UIColor yellowColor];
-    self.scene.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:102/255.0 alpha:1];
+    self.scene.backgroundColor = [UIColor colorWithRed:37/255.0 green:51/255.0 blue:122/255.0 alpha:1];
     
     //1st line from left
     SKShapeNode *yourline = [SKShapeNode node];
     CGMutablePathRef pathToDraw = CGPathCreateMutable();
-    CGPathMoveToPoint(pathToDraw, NULL, CGRectGetMidX(self.frame) - 120,1400);
-    CGPathAddLineToPoint(pathToDraw, NULL, CGRectGetMidX(self.frame) - 120, 0);
+    float m = CGRectGetMidX(self.frame);
+    CGPathMoveToPoint(pathToDraw, NULL,CGRectGetMidX(self.frame) - 110,1400);
+    CGPathAddLineToPoint(pathToDraw, NULL, CGRectGetMidX(self.frame) - 110, 0);
     yourline.path = pathToDraw;
     [yourline setStrokeColor:[SKColor redColor]];
     [self addChild:yourline];
@@ -45,8 +46,8 @@ NSTimer *red_timer,*collision_red;
     //2nd line
     SKShapeNode *yourline2 = [SKShapeNode node];
     CGMutablePathRef pathToDraw2 = CGPathCreateMutable();
-    CGPathMoveToPoint(pathToDraw2, NULL, CGRectGetMidX(self.frame) - 20,1400);
-    CGPathAddLineToPoint(pathToDraw2, NULL, CGRectGetMidX(self.frame) - 20, 0);
+    CGPathMoveToPoint(pathToDraw2, NULL, CGRectGetMidX(self.frame),1400);
+    CGPathAddLineToPoint(pathToDraw2, NULL, CGRectGetMidX(self.frame), 0);
     yourline2.path = pathToDraw2;
     [yourline2 setStrokeColor:[SKColor redColor]];
     [self addChild:yourline2];
@@ -54,8 +55,8 @@ NSTimer *red_timer,*collision_red;
     //3rd line
     SKShapeNode *yourline3 = [SKShapeNode node];
     CGMutablePathRef pathToDraw3 = CGPathCreateMutable();
-    CGPathMoveToPoint(pathToDraw3, NULL, CGRectGetMidX(self.frame) + 80,1400);
-    CGPathAddLineToPoint(pathToDraw3, NULL, CGRectGetMidX(self.frame) + 80, 0);
+    CGPathMoveToPoint(pathToDraw3, NULL, CGRectGetMidX(self.frame) + 120,1400);
+    CGPathAddLineToPoint(pathToDraw3, NULL, CGRectGetMidX(self.frame) + 120, 0);
     yourline3.path = pathToDraw3;
     [yourline3 setStrokeColor:[SKColor redColor]];
     [self addChild:yourline3];
@@ -268,25 +269,25 @@ NSTimer *red_timer,*collision_red;
         red_sq = tmp;
         if (randomNumber == 0 || randomNumber == 3) {
             red_square = [SKSpriteNode spriteNodeWithImageNamed:image];
-            red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
+            red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 60,screenHeight + 100);
             red_square.name     = @"square";
             
             [self addChild:red_square];
             
             //setting time for the image to slide
-            [red_square runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 70,-50) duration:3.0]];
+            [red_square runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 60,-50) duration:3.0]];
             red_cnt++;
         }
         else
         {
             red_square = [SKSpriteNode spriteNodeWithImageNamed:image];
-            red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
+            red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 165,screenHeight + 100);
             red_square.name     = @"square";
         
             [self addChild:red_square];
         
             //setting time for the image to slide
-            [red_square runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 170,-50) duration:3.0]];
+            [red_square runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 165,-50) duration:3.0]];
             red_cnt++;
         }
     }
@@ -298,25 +299,25 @@ NSTimer *red_timer,*collision_red;
         red_sq2 = tmp;
         if (randomNumber == 0 || randomNumber == 3) {
             red_square2 = [SKSpriteNode spriteNodeWithImageNamed:image];
-            red_square2.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
+            red_square2.position = CGPointMake(CGRectGetMidX(self.frame) - 60,screenHeight + 100);
             red_square2.name     = @"square2";
             
             [self addChild:red_square2];
             
             //setting time for the image to slide
-            [red_square2 runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 70,-50) duration:3.0]];
+            [red_square2 runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 60,-50) duration:3.0]];
             red_cnt++;
         }
         else
         {
             red_square2 = [SKSpriteNode spriteNodeWithImageNamed:image];
-            red_square2.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
+            red_square2.position = CGPointMake(CGRectGetMidX(self.frame) - 165,screenHeight + 100);
             red_square2.name     = @"square2";
             
             [self addChild:red_square2];
             
             //setting time for the image to slide
-            [red_square2 runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 170,-50) duration:3.0]];
+            [red_square2 runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 165,-50) duration:3.0]];
             red_cnt++;
         }
     }
@@ -330,11 +331,11 @@ NSTimer *red_timer,*collision_red;
         red_square3.name = @"square3";
         if(randomNumber == 0 || randomNumber == 3)
         {
-            red_square3.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
+            red_square3.position = CGPointMake(CGRectGetMidX(self.frame) - 60,screenHeight + 100);
         }
         else
         {
-            red_square3.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
+            red_square3.position = CGPointMake(CGRectGetMidX(self.frame) - 165,screenHeight + 100);
         }
         [self addChild:red_square3];
         [red_square3 runAction:[SKAction moveTo:CGPointMake(red_square3.position.x,-50) duration:3.0]];
@@ -350,11 +351,11 @@ NSTimer *red_timer,*collision_red;
         red_square4.name = @"square4";
         if(randomNumber == 0 || randomNumber == 3)
         {
-            red_square4.position = CGPointMake(CGRectGetMidX(self.frame) - 70,screenHeight + 100);
+            red_square4.position = CGPointMake(CGRectGetMidX(self.frame) - 60,screenHeight + 100);
         }
         else
         {
-            red_square4.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
+            red_square4.position = CGPointMake(CGRectGetMidX(self.frame) - 165,screenHeight + 100);
         }
         [self addChild:red_square4];
         [red_square4 runAction:[SKAction moveTo:CGPointMake(red_square4.position.x,-50) duration:3.0]];
@@ -383,10 +384,10 @@ NSTimer *red_timer,*collision_red;
 //        [self addChild:sprite];
 //    }
     red_car.name = @"car";
-    if(red_car.position.x == (CGRectGetMidX(self.frame) - 170))
+    if(red_car.position.x == (CGRectGetMidX(self.frame) - 165))
     {
        
-        [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 70,30) duration:0.4]];
+        [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 60,30) duration:0.4]];
       //  SKAction *rotation = [SKAction rotateByAngle: 0 duration:0.5];
         //and just run the action
        // [red_car runAction: rotation];
@@ -410,7 +411,7 @@ NSTimer *red_timer,*collision_red;
     }
     else
     {
-        [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 170,30) duration:0.4]];
+        [red_car runAction:[SKAction moveTo:CGPointMake(CGRectGetMidX(self.frame) - 165,30) duration:0.4]];
         SKAction *moveUp = [SKAction rotateByAngle: M_PI/4.0 duration:0.2];
         SKAction *moveDown = [SKAction rotateByAngle: -M_PI/4.0 duration:0.2];
         [self enumerateChildNodesWithName:@"car" usingBlock:^(SKNode *node, BOOL *stop) {
@@ -436,7 +437,7 @@ NSTimer *red_timer,*collision_red;
 -(void)set_Red_car
 {
     red_car = [SKSpriteNode spriteNodeWithImageNamed:@"car"];
-    red_car.position = CGPointMake(CGRectGetMidX(self.frame) - 170, 30);
+    red_car.position = CGPointMake(CGRectGetMidX(self.frame) - 165, 30);
     [self addChild:red_car];
 }
 
@@ -444,7 +445,7 @@ NSTimer *red_timer,*collision_red;
 {
     red_square = [SKSpriteNode spriteNodeWithImageNamed:@"square"];
    // red_square.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
-     red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 170,screenHeight + 100);
+     red_square.position = CGPointMake(CGRectGetMidX(self.frame) - 165,screenHeight + 100);
     //red_square.size     = CGSizeMake(80, 56);
     red_square.name     = @"square";
     
