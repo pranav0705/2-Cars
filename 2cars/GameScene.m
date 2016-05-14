@@ -95,6 +95,12 @@ NSTimer *blue_timer,*collision_blue;
 }
 
 
+-(void)GameOverFn
+{
+    UIViewController *vc = self.view.window.rootViewController;
+    [vc performSegueWithIdentifier:@"GameOver" sender:self];
+}
+
 -(void)col_blue
 {
     //checking for 1st Square
@@ -264,9 +270,11 @@ NSTimer *blue_timer,*collision_blue;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             
-            SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
+           /* SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
             SKScene * myScene = [[GameScene alloc] initWithSize:self.size];
-            [self.view presentScene:myScene transition: reveal];
+            [self.view presentScene:myScene transition: reveal]; */
+            UIViewController *vc = self.view.window.rootViewController;
+            [vc performSegueWithIdentifier:@"GameOver" sender:self];
         }
         else
         {
@@ -277,6 +285,8 @@ NSTimer *blue_timer,*collision_blue;
                 rs = false;
                 scr++;
                 score.text = [NSString stringWithFormat:@"%d", scr];
+                UIViewController *vc = self.view.window.rootViewController;
+                [vc performSegueWithIdentifier:@"GameOver" sender:self];
             }
             
         }
