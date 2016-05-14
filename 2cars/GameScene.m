@@ -262,7 +262,11 @@ NSTimer *blue_timer,*collision_blue;
             [red_square2 removeAllActions];
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
-             [collision_red invalidate];
+            [collision_red invalidate];
+            
+            SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
+            SKScene * myScene = [[GameScene alloc] initWithSize:self.size];
+            [self.view presentScene:myScene transition: reveal];
         }
         else
         {
