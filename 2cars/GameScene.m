@@ -69,7 +69,8 @@ NSTimer *blue_timer,*collision_blue;
     collision_red = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(col_red) userInfo:nil repeats:YES];
     
     //timer for blue car
-    blue_timer = [NSTimer scheduledTimerWithTimeInterval:1.7 target:self selector:@selector(blueTime) userInfo:nil repeats:YES];
+    blue_timer = [NSTimer scheduledTimerWithTimeInterval:2.2 target:self selector:@selector(blueTime) userInfo:nil repeats:YES];
+    collision_blue = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(col_blue) userInfo:nil repeats:YES];
     
     screenRect = [[UIScreen mainScreen] bounds];
     screenWidth = screenRect.size.width;
@@ -91,6 +92,163 @@ NSTimer *blue_timer,*collision_blue;
     [score setFontName:@"Papyrus"];
     score.text = @"0";
     [self addChild:score];
+}
+
+
+-(void)col_blue
+{
+    //checking for 1st Square
+    if (CGRectIntersectsRect([blue_car frame], [blue_square frame])) {
+        if (blue_sq == 1) {
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+        else
+        {
+            if(bscr1)
+            {
+                bscr1 = false;
+                blue_square.hidden = YES;
+                bs = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
+            
+        }
+    }
+    
+    //checking for 2nd Square
+    if (CGRectIntersectsRect([blue_car frame], [blue_square2 frame])) {
+        if (blue_sq2 == 1) {
+            NSLog(@"tmp = %d",tmp);
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+        else
+        {
+            if(bscr2)
+            {
+                bscr2 = false;
+                blue_square2.hidden = YES;
+                bs2 = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
+        }
+    }
+    //checking for 3rd Square
+    if (CGRectIntersectsRect([blue_car frame], [blue_square3 frame])) {
+        if (blue_sq3 == 1) {
+            NSLog(@"tmp = %d",tmp);
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+        else
+        {
+            if(bscr3)
+            {
+                bscr3 = false;
+                blue_square3.hidden = YES;
+                bs3 = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
+        }
+    }
+    //checking for 4th Square
+    if (CGRectIntersectsRect([blue_car frame], [blue_square4 frame])) {
+        if (blue_sq4 == 1) {
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+        else
+        {
+            if(bscr4)
+            {
+                bscr4 = false;
+                blue_square4.hidden = YES;
+                bs4 = false;
+                scr++;
+                score.text = [NSString stringWithFormat:@"%d", scr];
+            }
+        }
+    }
+    
+    //checking if missed circle
+    //for 1st circle
+    if(blue_sq == 0 && bs)
+    {
+        // NSLog(@"here y position %f",red_square.position.y);
+        if(blue_square.position.y < 20)
+        {
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+    }
+    //for 2nd circle
+    if(blue_sq2 == 0 && bs2)
+    {
+        if(blue_square2.position.y < 20)
+        {
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+    }
+    
+    //for 3rd circle
+    if(blue_sq3 == 0 && bs3)
+    {
+        if(blue_square3.position.y < 20)
+        {
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+    }
+    
+    //for 4th circle
+    if(blue_sq4 == 0 && bs4)
+    {
+        if(blue_square4.position.y < 20)
+        {
+            [blue_timer invalidate];
+            [blue_square removeAllActions];
+            [blue_square2 removeAllActions];
+            [blue_square3 removeAllActions];
+            [blue_square4 removeAllActions];
+            [collision_blue invalidate];
+        }
+    }
+    
+  
+
 }
 
 -(void)col_red
@@ -260,15 +418,15 @@ NSTimer *blue_timer,*collision_blue;
     NSString *image;
     NSInteger randomNumber = arc4random() % 4;
     NSInteger randomImage = arc4random() % 4;
-   // if (randomImage == 0 || randomImage == 2) {
+   if (randomImage == 0 || randomImage == 2) {
         image = @"blue_circle";
         tmp = 0;
-    //}
-//    else
-//    {
-//        image = @"square";
-//        tmp = 1;
-//    }
+    }
+    else
+    {
+        image = @"blue_square";
+        tmp = 1;
+    }
 
     if(blue_cnt == 0)
     {
