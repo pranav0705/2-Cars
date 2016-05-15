@@ -25,8 +25,11 @@ NSTimer *red_timer,*collision_red;
 NSTimer *blue_timer,*collision_blue;
 
 //variables for blinking of image
-NSTimer *b1;
-Boolean bf1 = false;
+NSTimer *b1,*b2,*b3,*b4;
+Boolean bf1 = false,bf2=false,bf3=false,bf4=false;
+
+NSTimer *r1,*r2,*r3,*r4;
+Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
 
 @implementation GameScene
 
@@ -90,6 +93,65 @@ Boolean bf1 = false;
     [self setScoreLabel];
 }
 
+
+-(void)blink_r1
+{
+    if(rf1)
+    {
+        red_square.hidden = NO;
+        rf1  = false;
+    }
+    else
+    {
+        red_square.hidden = YES;
+        rf1 = true;
+    }
+}
+
+-(void)blink_r2
+{
+    if(rf2)
+    {
+        red_square2.hidden = NO;
+        rf2  = false;
+    }
+    else
+    {
+        red_square2.hidden = YES;
+        rf2 = true;
+    }
+}
+
+-(void)blink_r3
+{
+    if(rf3)
+    {
+        red_square3.hidden = NO;
+        rf3  = false;
+    }
+    else
+    {
+        red_square3.hidden = YES;
+        rf3 = true;
+    }
+}
+
+-(void)blink_r4
+{
+    if(rf4)
+    {
+        red_square4.hidden = NO;
+        rf4  = false;
+    }
+    else
+    {
+        red_square4.hidden = YES;
+        rf4 = true;
+    }
+}
+
+
+
 -(void)blink_b1
 {
     if(bf1)
@@ -104,6 +166,47 @@ Boolean bf1 = false;
     }
 }
 
+-(void)blink_b2
+{
+    if(bf2)
+    {
+        blue_square2.hidden = NO;
+        bf2  = false;
+    }
+    else
+    {
+        blue_square2.hidden = YES;
+        bf2 = true;
+    }
+}
+
+-(void)blink_b3
+{
+    if(bf3)
+    {
+        blue_square3.hidden = NO;
+        bf3  = false;
+    }
+    else
+    {
+        blue_square3.hidden = YES;
+        bf3 = true;
+    }
+}
+
+-(void)blink_b4
+{
+    if(bf4)
+    {
+        blue_square4.hidden = NO;
+        bf4  = false;
+    }
+    else
+    {
+        blue_square4.hidden = YES;
+        bf4 = true;
+    }
+}
 -(void)setScoreLabel
 {
     score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -132,6 +235,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
         }
         else
         {
@@ -157,6 +261,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b2) userInfo:nil repeats:YES];
         }
         else
         {
@@ -180,6 +285,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b3) userInfo:nil repeats:YES];
         }
         else
         {
@@ -202,6 +308,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b4) userInfo:nil repeats:YES];
         }
         else
         {
@@ -229,6 +336,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
         }
     }
     //for 2nd circle
@@ -242,6 +350,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b2) userInfo:nil repeats:YES];
         }
     }
     
@@ -256,6 +365,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b3) userInfo:nil repeats:YES];
         }
     }
     
@@ -270,6 +380,7 @@ Boolean bf1 = false;
             [blue_square3 removeAllActions];
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
+            b4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b4) userInfo:nil repeats:YES];
         }
     }
     
@@ -289,13 +400,14 @@ Boolean bf1 = false;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
             [collision_red invalidate];
+            r1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r1) userInfo:nil repeats:YES];
             
            /* SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
             SKScene * myScene = [[GameScene alloc] initWithSize:self.size];
             [self.view presentScene:myScene transition: reveal]; */
            // UIViewController *vc = self.view.window.rootViewController;
            // [vc performSegueWithIdentifier:@"GameOver" sender:self];
-             b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
+            
         }
         else
         {
@@ -308,7 +420,7 @@ Boolean bf1 = false;
                 score.text = [NSString stringWithFormat:@"%d", scr];
              //   UIViewController *vc = self.view.window.rootViewController;
              //   [vc performSegueWithIdentifier:@"GameOver" sender:self];
-                 b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
+                
             }
             
         }
@@ -323,7 +435,8 @@ Boolean bf1 = false;
             [red_square2 removeAllActions];
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
-             [collision_red invalidate];
+            [collision_red invalidate];
+            r2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r2) userInfo:nil repeats:YES];
         }
         else
         {
@@ -347,6 +460,7 @@ Boolean bf1 = false;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
              [collision_red invalidate];
+            r3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r3) userInfo:nil repeats:YES];
         }
         else
         {
@@ -370,6 +484,7 @@ Boolean bf1 = false;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
             [collision_red invalidate];
+            r4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r4) userInfo:nil repeats:YES];
         }
         else
         {
@@ -398,6 +513,7 @@ Boolean bf1 = false;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
             [collision_red invalidate];
+            r1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r1) userInfo:nil repeats:YES];
         }
     }
     //for 2nd circle
@@ -412,6 +528,7 @@ Boolean bf1 = false;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
             [collision_red invalidate];
+            r2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r2) userInfo:nil repeats:YES];
         }
     }
 
@@ -426,6 +543,7 @@ Boolean bf1 = false;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
             [collision_red invalidate];
+            r3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r3) userInfo:nil repeats:YES];
         }
     }
 
@@ -440,6 +558,7 @@ Boolean bf1 = false;
             [red_square3 removeAllActions];
             [red_square4 removeAllActions];
             [collision_red invalidate];
+            r4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r4) userInfo:nil repeats:YES];
         }
     }
 
