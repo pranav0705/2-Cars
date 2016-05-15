@@ -21,7 +21,7 @@ Boolean bscr1 = false,bscr2 = false, bscr3 = false, bscr4 = false;
 CGRect screenRect;
 CGFloat screenWidth;
 CGFloat screenHeight;
-NSTimer *red_timer,*collision_red;
+NSTimer *red_timer,*collision_red,*gv;
 NSTimer *blue_timer,*collision_blue;
 
 //variables for blinking of image
@@ -91,6 +91,12 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
     [self set_Blue_car];
     //setting score label
     [self setScoreLabel];
+}
+
+-(void) gameOvr
+{
+     UIViewController *vc = self.view.window.rootViewController;
+     [vc performSegueWithIdentifier:@"GameOver" sender:self];
 }
 
 
@@ -401,12 +407,18 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             r1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r1) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
             
            /* SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
             SKScene * myScene = [[GameScene alloc] initWithSize:self.size];
             [self.view presentScene:myScene transition: reveal]; */
            // UIViewController *vc = self.view.window.rootViewController;
            // [vc performSegueWithIdentifier:@"GameOver" sender:self];
+            
+             gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
             
         }
         else
@@ -437,6 +449,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             r2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r2) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
         else
         {
@@ -461,6 +478,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
              [collision_red invalidate];
             r3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r3) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
         else
         {
@@ -485,6 +507,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             r4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r4) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
         else
         {
