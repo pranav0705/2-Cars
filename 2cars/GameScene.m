@@ -23,6 +23,11 @@ CGFloat screenWidth;
 CGFloat screenHeight;
 NSTimer *red_timer,*collision_red;
 NSTimer *blue_timer,*collision_blue;
+
+//variables for blinking of image
+NSTimer *b1;
+Boolean bf1 = false;
+
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
@@ -71,6 +76,7 @@ NSTimer *blue_timer,*collision_blue;
     //timer for blue car
     blue_timer = [NSTimer scheduledTimerWithTimeInterval:2.2 target:self selector:@selector(blueTime) userInfo:nil repeats:YES];
     collision_blue = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(col_blue) userInfo:nil repeats:YES];
+   
     
     screenRect = [[UIScreen mainScreen] bounds];
     screenWidth = screenRect.size.width;
@@ -82,6 +88,20 @@ NSTimer *blue_timer,*collision_blue;
     [self set_Blue_car];
     //setting score label
     [self setScoreLabel];
+}
+
+-(void)blink_b1
+{
+    if(bf1)
+    {
+        blue_square.hidden = NO;
+        bf1  = false;
+    }
+    else
+    {
+        blue_square.hidden = YES;
+        bf1 = true;
+    }
 }
 
 -(void)setScoreLabel
@@ -273,8 +293,9 @@ NSTimer *blue_timer,*collision_blue;
            /* SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
             SKScene * myScene = [[GameScene alloc] initWithSize:self.size];
             [self.view presentScene:myScene transition: reveal]; */
-            UIViewController *vc = self.view.window.rootViewController;
-            [vc performSegueWithIdentifier:@"GameOver" sender:self];
+           // UIViewController *vc = self.view.window.rootViewController;
+           // [vc performSegueWithIdentifier:@"GameOver" sender:self];
+             b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
         }
         else
         {
@@ -285,8 +306,9 @@ NSTimer *blue_timer,*collision_blue;
                 rs = false;
                 scr++;
                 score.text = [NSString stringWithFormat:@"%d", scr];
-                UIViewController *vc = self.view.window.rootViewController;
-                [vc performSegueWithIdentifier:@"GameOver" sender:self];
+             //   UIViewController *vc = self.view.window.rootViewController;
+             //   [vc performSegueWithIdentifier:@"GameOver" sender:self];
+                 b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
             }
             
         }
