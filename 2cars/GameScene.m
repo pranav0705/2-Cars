@@ -242,6 +242,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
         else
         {
@@ -268,6 +273,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b2) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
         else
         {
@@ -292,6 +302,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b3) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
         else
         {
@@ -315,6 +330,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b4) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
         else
         {
@@ -343,6 +363,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b1) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
     //for 2nd circle
@@ -357,6 +382,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b2) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
     
@@ -372,6 +402,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b3) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
     
@@ -387,6 +422,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [blue_square4 removeAllActions];
             [collision_blue invalidate];
             b4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_b4) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
     
@@ -541,6 +581,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             r1 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r1) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
     //for 2nd circle
@@ -556,6 +601,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             r2 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r2) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
 
@@ -571,6 +621,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             r3 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r3) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
 
@@ -586,6 +641,11 @@ Boolean rf1 = false,rf2 = false, rf3 = false, rf4 = false;
             [red_square4 removeAllActions];
             [collision_red invalidate];
             r4 = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blink_r4) userInfo:nil repeats:YES];
+            [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"Score"];
+            NSInteger tmpscr = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+            if(scr > tmpscr)
+                [[NSUserDefaults standardUserDefaults] setInteger:scr forKey:@"HighScore"];
+            gv = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(gameOvr) userInfo:nil repeats:1];
         }
     }
 

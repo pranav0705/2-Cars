@@ -47,13 +47,13 @@
     //self.view.backgroundColor = [UIColor clearColor];
 
     
-    UIButton *restart = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
-    
-    UIImage *btnImage = [UIImage imageNamed:@"circle.png"];
-    [restart setImage:btnImage forState:UIControlStateNormal];
-    [self.view addSubview:restart];
-    
-    [restart addTarget:self action:@selector(restartGame) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *restart = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
+//    
+//    UIImage *btnImage = [UIImage imageNamed:@"circle.png"];
+//    [restart setImage:btnImage forState:UIControlStateNormal];
+//    [self.view addSubview:restart];
+//    
+//    [restart addTarget:self action:@selector(restartGame) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)restartGame
