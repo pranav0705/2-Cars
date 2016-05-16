@@ -44,9 +44,7 @@
     self.view.alpha = 1.0f;
     // Use UIColor to set alpha transparency of just the background view
     self.view.backgroundColor = [UIColor colorWithRed:50.0f green:50.0f blue:50.0f alpha:0.5f];
-    //self.view.backgroundColor = [UIColor clearColor];
 
-    
 //    UIButton *restart = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
 //    
 //    UIImage *btnImage = [UIImage imageNamed:@"circle.png"];
