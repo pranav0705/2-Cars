@@ -24,6 +24,7 @@
 		3DE88FE81CE3C2BD002DF8AB /* _carsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FE71CE3C2BD002DF8AB /* _carsTests.m */; };
 		3DE88FF31CE3C2BD002DF8AB /* _carsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE88FF21CE3C2BD002DF8AB /* _carsUITests.m */; };
 		3DEF7AA71CE3EBB000150FFB /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DEF7AA61CE3EBB000150FFB /* square.png */; };
+		8101080B1CEAE82C00D64ADE /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8101080A1CEAE82C00D64ADE /* bg1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		3DE88FF21CE3C2BD002DF8AB /* _carsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _carsUITests.m; sourceTree = "<group>"; };
 		3DE88FF41CE3C2BD002DF8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DEF7AA61CE3EBB000150FFB /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = SOURCE_ROOT; };
+		8101080A1CEAE82C00D64ADE /* bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg1.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		3DE88FC71CE3C2BD002DF8AB /* 2cars */ = {
 			isa = PBXGroup;
 			children = (
+				8101080A1CEAE82C00D64ADE /* bg1.png */,
 				3D2AAA681CE6A0FD00086D26 /* blue_square.png */,
 				3DC820471CE67B9D00C105D0 /* blue_car.png */,
 				3DC820481CE67B9D00C105D0 /* blue_circle.png */,
@@ -278,6 +281,7 @@
 				3D98F84A1CE4084300BACA3B /* car.png in Resources */,
 				3DE88FD21CE3C2BD002DF8AB /* GameScene.sks in Resources */,
 				3DE88FDD1CE3C2BD002DF8AB /* LaunchScreen.storyboard in Resources */,
+				8101080B1CEAE82C00D64ADE /* bg1.png in Resources */,
 				3DEF7AA71CE3EBB000150FFB /* square.png in Resources */,
 				3DC820491CE67B9D00C105D0 /* blue_car.png in Resources */,
 				3D2AAA691CE6A0FD00086D26 /* blue_square.png in Resources */,
